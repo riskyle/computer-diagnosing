@@ -23,6 +23,9 @@
                                                 <div class="clr-line">
                                                     {{-- sellect/input --}}
                                                     <select id="q2" name="q2" class="box">
+                                                        <option value="" selected disabled>
+                                                            Select
+                                                        </option>
                                                         <option value="Acer">Acer</option>
                                                         <option value="Asus">Asus</option>
                                                         <option value="Dell">Dell</option>
@@ -423,7 +426,7 @@
                     icon: "error",
                     title: "You forgot to select",
                     text: "Select Issue",
-                    // showDenyButton: true,
+                    showDenyButton: false,
                     confirmButtonText: 'OK',
                     // denyButtonText: `Don 't save`
                 }).then((okay) => {
@@ -484,10 +487,12 @@
                 })
                 deviceId = res.data.device.id
                 hints = list
-                brandType = ""
-                issue1 = ""
-                issue2 = ""
-                issue3 = ""
+                issueForm[1].value = ""
+                issueForm[2].value = ""
+                issueForm[3].value = ""
+                issueForm[4].value = ""
+                $("#next-button1, .select1, .select-brand").removeClass("d-none")
+                $("#next-button2, #submit, .select2, .select3").addClass("d-none")
             } catch (error) {
                 console.error(error)
             }
@@ -499,11 +504,8 @@
             let brandType = issueForm[1].value
             let issue1 = issueForm[2].value
             if (issue1) {
-                $(".select1").addClass("d-none")
-                $(".select-brand").addClass("d-none")
-                $(".select2").removeClass("d-none")
-                $("button#next-button1").addClass("d-none")
-                $("button#next-button2").removeClass("d-none")
+                $("#next-button1, .select1, .select-brand").addClass("d-none")
+                $("#next-button2, .select2").removeClass("d-none")
                 removeOptionIfSelected("issue-select2", issueForm[2].value)
             } else {
                 Swal.fire({
@@ -527,11 +529,8 @@
             if (issue2) {
                 removeOptionIfSelected("issue-select3", issueForm[2].value)
                 removeOptionIfSelected("issue-select3", issueForm[3].value)
-                $(".select2").addClass("d-none")
-                $(".select3").removeClass("d-none")
-                $("button#next-button2").addClass("d-none")
-                $("button#submit").removeClass("d-none")
-                $("button#diagnosed").addClass("d-none")
+                $("#next-button2, #diagnosed, .select2").addClass("d-none")
+                $("#submit, .select3").removeClass("d-none")
             } else {
                 Swal.fire({
                     icon: "error",
@@ -540,10 +539,7 @@
                     // showDenyButton: true,
                     confirmButtonText: 'OK',
                     // denyButtonText: `Don 't save`
-                }).then((okay) => {
-                    console.log(okay)
-                    // location.href = "/"
-                });
+                })
                 return
             }
         })
