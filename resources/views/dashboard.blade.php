@@ -9,18 +9,18 @@
         <div class="container h-500">
             <div class="row d-flex justify-content-center align-items-center h-500">
                 <div class="col-lg-12 col-xl-8 mt-5 mb-10">
-                    <div class="card text-black" style="border-radius: 9px; backdrop-filter: blur(6px)">
-
+                    {{-- card1 --}}
+                    <div class="card1 card text-black" style="border-radius: 9px; backdrop-filter: blur(6px)">
                         <div class="card-body p-md-6">
                             <div class="row justify-content-center">
                                 <div class="col-md-10  ">
                                     <form id="issue-form" action="" method="POST">
                                         @csrf
-                                        <div class=" col-12 d-flex flex-row align-items-center mb-3">
+                                        <div class="select-brand col-12 d-flex flex-row align-items-center mb-3">
                                             <div class="form-outline flex-fill mb-0">
                                                 {{-- label --}}
                                                 <label for="q2" class="txt">Brand of the device?</label>
-                                                <div class=" clr-line">
+                                                <div class="clr-line">
                                                     {{-- sellect/input --}}
                                                     <select id="q2" name="q2" class="box">
                                                         <option value="Acer">Acer</option>
@@ -40,7 +40,8 @@
                                             </div>
                                         </div>
 
-                                        <div class=" col-12 d-flex flex-row align-items-center mb-3">
+                                        {{-- select 1   --}}
+                                        <div class="select1 col-12 d-flex flex-row align-items-center mb-3">
                                             <div class="form-outline flex-fill mb-0">
                                                 {{-- label --}}
                                                 <label for="issue1" class="txt">Hardware Issues:</label>
@@ -50,8 +51,205 @@
                                                         <option value="" selected disabled>
                                                             Select
                                                         </option>
-                                                        <option value="">
-                                                            None
+                                                        <option value="turn off">
+                                                            Turn Off
+                                                        </option>
+                                                        <option value="bluescreen">
+                                                            Blue Screen
+                                                        </option>
+                                                        <option value="overheating">
+                                                            Overheating
+                                                        </option>
+                                                        <option value="unusual noise">
+                                                            Unusual Noise
+                                                        </option>
+                                                        <option value="performance degradation">
+                                                            Performance Degradation
+                                                        </option>
+                                                        <option value="system crashes">
+                                                            System Crashes
+                                                        </option>
+                                                        <option value="data corruption">
+                                                            Data Corruption
+                                                        </option>
+                                                        <option value="slow performance">
+                                                            Slow Performance
+                                                        </option>
+                                                        <option value="pointer drift or inaccuracy">
+                                                            Pointer Drift or Inaccuracy
+                                                        </option>
+                                                        <option value="physical damage">
+                                                            Physical Damage
+                                                        </option>
+                                                        <option value="failure to power on">
+                                                            Failure to Power On
+                                                        </option>
+                                                        <option value="intermittent boot failures">
+                                                            Intermittent Boot Failures
+                                                        </option>
+                                                        <option value="overheating or excessive noise">Overheating or
+                                                            Excessive Noise
+                                                        </option>
+                                                        <option value="burning smell or smoke">
+                                                            Burning Smell or Smoke
+                                                        </option>
+                                                        <option value="intermittent power supply">
+                                                            Intermittent Power Supply
+                                                        </option>
+                                                        <option value="peripheral malfunctions">
+                                                            Peripheral Malfunctions
+                                                        </option>
+                                                        <option value="random crashes or freezes">
+                                                            Random Crashes or Freezes
+                                                        </option>
+                                                        <option value="application errors and instability">
+                                                            Application Errors and Instability
+                                                        </option>
+                                                        <option value="system boot failure">
+                                                            System Boot Failure
+                                                        </option>
+                                                        <option value="instruction execution errors">
+                                                            Instruction Execution Errors
+                                                        </option>
+                                                        <option value="system instability">
+                                                            System Instability
+                                                        </option>
+                                                        <option value="artifacts and visual glitches">
+                                                            Artifacts and Visual Glitches
+                                                        </option>
+                                                        <option value="reduced graphics performance">
+                                                            Reduced Graphics Performance
+                                                        </option>
+                                                        <option value="dead pixels">
+                                                            Dead Pixels
+                                                        </option>
+                                                        <option value="screen flickering">
+                                                            Screen Flickering
+                                                        </option>
+                                                        <option value="blurry or distorted images">
+                                                            Blurry or Distorted Images
+                                                        </option>
+                                                        <option value="no display or blank screen">
+                                                            No Display or Blank Screen
+                                                        </option>
+                                                        <option value="cracked or damaged screen">
+                                                            Cracked or Damaged Screen
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{-- select 2 --}}
+                                        <div class="select2 col-12 d-flex flex-row align-items-center mb-3 d-none">
+                                            <div class="form-outline flex-fill mb-0">
+                                                {{-- label --}}
+                                                <label for="issue1" class="txt">Hardware Issues:</label>
+                                                <div class=" clr-line">
+                                                    {{-- sellect/input --}}
+                                                    <select id="issue-select2" name="issue1" class="box">
+                                                        <option value="" selected disabled>
+                                                            Select
+                                                        </option>
+                                                        <option value="turn off">
+                                                            Turn Off
+                                                        </option>
+                                                        <option value="bluescreen">
+                                                            Blue Screen
+                                                        </option>
+                                                        <option value="overheating">
+                                                            Overheating
+                                                        </option>
+                                                        <option value="unusual noise">
+                                                            Unusual Noise
+                                                        </option>
+                                                        <option value="performance degradation">
+                                                            Performance Degradation
+                                                        </option>
+                                                        <option value="system crashes">
+                                                            System Crashes
+                                                        </option>
+                                                        <option value="data corruption">
+                                                            Data Corruption
+                                                        </option>
+                                                        <option value="slow performance">
+                                                            Slow Performance
+                                                        </option>
+                                                        <option value="pointer drift or inaccuracy">
+                                                            Pointer Drift or Inaccuracy
+                                                        </option>
+                                                        <option value="physical damage">
+                                                            Physical Damage
+                                                        </option>
+                                                        <option value="failure to power on">
+                                                            Failure to Power On
+                                                        </option>
+                                                        <option value="intermittent boot failures">
+                                                            Intermittent Boot Failures
+                                                        </option>
+                                                        <option value="overheating or excessive noise">Overheating or
+                                                            Excessive Noise
+                                                        </option>
+                                                        <option value="burning smell or smoke">
+                                                            Burning Smell or Smoke
+                                                        </option>
+                                                        <option value="intermittent power supply">
+                                                            Intermittent Power Supply
+                                                        </option>
+                                                        <option value="peripheral malfunctions">
+                                                            Peripheral Malfunctions
+                                                        </option>
+                                                        <option value="random crashes or freezes">
+                                                            Random Crashes or Freezes
+                                                        </option>
+                                                        <option value="application errors and instability">
+                                                            Application Errors and Instability
+                                                        </option>
+                                                        <option value="system boot failure">
+                                                            System Boot Failure
+                                                        </option>
+                                                        <option value="instruction execution errors">
+                                                            Instruction Execution Errors
+                                                        </option>
+                                                        <option value="system instability">
+                                                            System Instability
+                                                        </option>
+                                                        <option value="artifacts and visual glitches">
+                                                            Artifacts and Visual Glitches
+                                                        </option>
+                                                        <option value="reduced graphics performance">
+                                                            Reduced Graphics Performance
+                                                        </option>
+                                                        <option value="dead pixels">
+                                                            Dead Pixels
+                                                        </option>
+                                                        <option value="screen flickering">
+                                                            Screen Flickering
+                                                        </option>
+                                                        <option value="blurry or distorted images">
+                                                            Blurry or Distorted Images
+                                                        </option>
+                                                        <option value="no display or blank screen">
+                                                            No Display or Blank Screen
+                                                        </option>
+                                                        <option value="cracked or damaged screen">
+                                                            Cracked or Damaged Screen
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{-- select 3 --}}
+                                        <div class="select3 col-12 d-flex flex-row align-items-center mb-3 d-none">
+                                            <div class="form-outline flex-fill mb-0">
+                                                {{-- label --}}
+                                                <label for="issue1" class="txt">Hardware Issues:</label>
+                                                <div class=" clr-line">
+                                                    {{-- sellect/input --}}
+                                                    <select id="issue-select3" name="issue1" class="box">
+                                                        <option value="" selected disabled>
+                                                            Select
                                                         </option>
                                                         <option value="turn off">
                                                             Turn Off
@@ -142,6 +340,8 @@
                                             </div>
                                         </div>
                                 </div>
+
+
                             </div>
                         </div>
                         {{-- end --}}
@@ -149,234 +349,207 @@
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-6  ">
                                 {{-- button  --}}
-                                <div id="button">
-                                    <button class="animated-button" id="next-button1">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Next</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                <button id="diagnosed">Diagnosed</button>
+
+                                <button class="animated-button" id="next-button1">
+                                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                        </path>
+                                    </svg>
+                                    <span class="text">Next</span>
+                                    <span class="circle"></span>
+                                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                                <button class="animated-button d-none" id="next-button2">
+                                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                        </path>
+                                    </svg>
+                                    <span class="text">Next</span>
+                                    <span class="circle"></span>
+                                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                        </path>
+                                    </svg>
+                                </button>
+
+                                <button class="animated-button d-none" id="submit">
+                                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                        </path>
+                                    </svg>
+                                    <span class="text">Submit</span>
+                                    <span class="circle"></span>
+                                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+                                        </path>
+                                    </svg>
+                                </button>
                                 {{-- end of button --}}
                                 </form>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
-
+    {{-- <script type="module" src="{{ asset('js/dashboard.js') }}"></script> --}}
     <script>
-        const issueForm = document.getElementById("issue-form")
-        const _token = document.querySelector("meta[name='csrf-token']")
-
-        $("#next-button1").on("click", (e) => {
+        let issueForm;
+        $("#diagnosed, #submit").on("click", async (e) => {
             e.preventDefault()
-            let html1 = `<div class=" col-12 d-flex flex-row align-items-center mb-3">
-                                            <div class="form-outline flex-fill mb-0">
-                                                {{-- label --}}
-                                                <label for="issue1" class="txt">Hardware Issues:</label>
-                                                <div class=" clr-line">
-                                                    {{-- sellect/input --}}
-                                                    <select id="issue1" name="issue1" class="box">
-                                                        <option value="" selected disabled>
-                                                            Select
-                                                        </option>
-                                                        <option value="">
-                                                            None
-                                                        </option>
-                                                        <option value="turn off">
-                                                            Turn Off
-                                                        </option>
-                                                        <option value="bluescreen">
-                                                            Blue Screen
-                                                        </option>
-                                                        <option value="overheating">
-                                                            Overheating
-                                                        </option>
-                                                        <option value="unusual noise">
-                                                            Unusual Noise
-                                                        </option>
-                                                        <option value="performance degradation">
-                                                            Performance Degradation
-                                                        </option>
-                                                        <option value="system crashes">
-                                                            System Crashes
-                                                        </option>
-                                                        <option value="data corruption">
-                                                            Data Corruption
-                                                        </option>
-                                                        <option value="slow performance">
-                                                            Slow Performance
-                                                        </option>
-                                                        <option value="pointer drift or inaccuracy">
-                                                            Pointer Drift or Inaccuracy
-                                                        </option>
-                                                        <option value="physical damage">
-                                                            Physical Damage
-                                                        </option>
-                                                        <option value="failure to power on">
-                                                            Failure to Power On
-                                                        </option>
-                                                        <option value="intermittent boot failures">
-                                                            Intermittent Boot Failures
-                                                        </option>
-                                                        <option value="overheating or excessive noise">Overheating or
-                                                            Excessive Noise
-                                                        </option>
-                                                        <option value="burning smell or smoke">
-                                                            Burning Smell or Smoke
-                                                        </option>
-                                                        <option value="intermittent power supply">
-                                                            Intermittent Power Supply
-                                                        </option>
-                                                        <option value="peripheral malfunctions">
-                                                            Peripheral Malfunctions
-                                                        </option>
-                                                        <option value="random crashes or freezes">
-                                                            Random Crashes or Freezes
-                                                        </option>
-                                                        <option value="application errors and instability">
-                                                            Application Errors and Instability
-                                                        </option>
-                                                        <option value="system boot failure">
-                                                            System Boot Failure
-                                                        </option>
-                                                        <option value="instruction execution errors">
-                                                            Instruction Execution Errors
-                                                        </option>
-                                                        <option value="system instability">
-                                                            System Instability
-                                                        </option>
-                                                        <option value="artifacts and visual glitches">
-                                                            Artifacts and Visual Glitches
-                                                        </option>
-                                                        <option value="reduced graphics performance">
-                                                            Reduced Graphics Performance
-                                                        </option>
-                                                        <option value="dead pixels">
-                                                            Dead Pixels
-                                                        </option>
-                                                        <option value="screen flickering">
-                                                            Screen Flickering
-                                                        </option>
-                                                        <option value="blurry or distorted images">
-                                                            Blurry or Distorted Images
-                                                        </option>
-                                                        <option value="no display or blank screen">
-                                                            No Display or Blank Screen
-                                                        </option>
-                                                        <option value="cracked or damaged screen">
-                                                            Cracked or Damaged Screen
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>`
-            $("#issue-form").html(html1)
+            issueForm = $("form#issue-form")[0]
+            let brandType = issueForm[1].value
+            let issue1 = issueForm[2].value
+            let issue2 = issueForm[3].value
+            let issue3 = issueForm[4].value
 
-            let button = `
-                                    <button class="animated-button" id="next-button2">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Next</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                        `
-            $("#button").html(button)
+            if (!issue1) {
+                Swal.fire({
+                    icon: "error",
+                    title: "You forgot to select",
+                    text: "Select Issue",
+                    // showDenyButton: true,
+                    confirmButtonText: 'OK',
+                    // denyButtonText: `Don 't save`
+                }).then((okay) => {
+                    console.log(okay)
+                    // location.href = "/"
+                });
+                return;
+            }
+
+            let hints = ""
+            let deviceId = 0
+            Swal.fire({
+                title: 'Analysing the issues',
+                html: 'Please wait...',
+                timer: 2000,
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                    timerInterval = setInterval(100);
+                },
+                willClose: () => {
+                    clearInterval(timerInterval);
+                    Swal.fire({
+                        icon: "success",
+                        title: `Issues`,
+                        html: `${hints}`,
+                        // showDenyButton: true,
+                        confirmButtonText: 'View Details',
+                        // denyButtonText: `Return to dashboard`
+                    }).then((okay) => {
+                        if (okay.isConfirmed) {
+                            location.href = `/diagnosing-result/${deviceId}`
+                        }
+                    });
+                }
+            });
+
+            const jsonData = {
+                brandType: brandType,
+                issues: [
+                    issue1.toLowerCase(),
+                    issue2.toLowerCase(),
+                    issue3.toLowerCase(),
+                ],
+            }
+            try {
+                const res = await axios.post("/diagnosing", jsonData)
+                console.log(res)
+                hints = res.data.hints
+                let list = ""
+                let increment = 0
+                hints.map(data => {
+                    increment += 1
+                    list += `
+                        <p>${increment}. ${data}</p>
+                    `
+                })
+                deviceId = res.data.device.id
+                hints = list
+                brandType = ""
+                issue1 = ""
+                issue2 = ""
+                issue3 = ""
+            } catch (error) {
+                console.error(error)
+            }
         })
 
-        $("button#next-button2").on("click", async (e) => {
-            console.log(e.target)
+        $("button#next-button1").on("click", (e) => {
+            e.preventDefault()
+            issueForm = $("form#issue-form")[0]
+            let brandType = issueForm[1].value
+            let issue1 = issueForm[2].value
+            if (issue1) {
+                $(".select1").addClass("d-none")
+                $(".select-brand").addClass("d-none")
+                $(".select2").removeClass("d-none")
+                $("button#next-button1").addClass("d-none")
+                $("button#next-button2").removeClass("d-none")
+                removeOptionIfSelected("issue-select2", issueForm[2].value)
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "You forgot to select",
+                    text: "Select Issue",
+                    // showDenyButton: true,
+                    confirmButtonText: 'OK',
+                    // denyButtonText: `Don 't save`
+                }).then((okay) => {
+                    console.log(okay)
+                    // location.href = "/"
+                });
+                return
+            }
         })
 
-        // $("#").on("submit", async (e) => {
-        //     e.preventDefault()
-        //     if (issueForm[3].value != "" || issueForm[4].value != "" || issueForm[5]
-        //         .value != "" || issueForm[6].value != "") {
-        //         let timeInterval;
-        //         let issue_id;
-        //         let results;
-        //         Swal.fire({
-        //             title: 'Analysing the issues',
-        //             html: 'Please wait...',
-        //             timer: 2000,
-        //             allowEscapeKey: false,
-        //             allowOutsideClick: false,
-        //             didOpen: () => {
-        //                 Swal.showLoading()
-        //                 timerInterval = setInterval(100);
-        //             },
-        //             willClose: () => {
-        //                 clearInterval(timerInterval);
-        //                 Swal.fire({
-        //                     icon: "success",
-        //                     title: "Here is the result",
-        //                     html: `${results}`,
-        //                     showDenyButton: true,
-        //                     confirmButtonText: 'Go to issues details',
-        //                     denyButtonText: `Return to dashboard`
-        //                 }).then((okay) => {
-        //                     if (okay.isConfirmed) {
-        //                         location.href = `/diagnosing-result/${issue_id}`
-        //                     }
-        //                 });
-        //             }
-        //         });
-        //         const issues = {
-        //             // q1: issueForm[1].value,
-        //             q1: "Laptop",
-        //             q2: issueForm[1].value,
-        //             q3: issueForm[2].value,
-        //             issue1: issueForm[3].value,
-        //             issue2: issueForm[4].value,
-        //             issue3: issueForm[5].value,
-        //             issue4: issueForm[6].value,
-        //             issue5: issueForm[7].value,
-        //         }
-        //         try {
-        //             const res = await axios.post("/diagnosing", issues)
-        //             console.log(res)
-        //             hints = res.data.hints
-        //             var list = ""
-        //             hints.map((data) => {
-        //                 list += `<li>${data}</li>`
-        //             })
-        //             results = list
-        //             issue_id = res.data.issue_id
-        //         } catch (error) {
-        //             console.error(error)
-        //         }
-        //     } else {
-        //         Swal.fire({
-        //             icon: "error",
-        //             title: "You forgot to select",
-        //             text: "Select atleast one issue",
-        //             // showDenyButton: true,
-        //             confirmButtonText: 'OK',
-        //             // denyButtonText: `Don 't save`
-        //         }).then((okay) => {
-        //             console.log(okay)
-        //             // location.href = "/"
-        //         });
-        //     }
-        // })
+        $("button#next-button2").on("click", (e) => {
+            e.preventDefault()
+            let issue2 = issueForm[3].value
+            if (issue2) {
+                removeOptionIfSelected("issue-select3", issueForm[2].value)
+                removeOptionIfSelected("issue-select3", issueForm[3].value)
+                $(".select2").addClass("d-none")
+                $(".select3").removeClass("d-none")
+                $("button#next-button2").addClass("d-none")
+                $("button#submit").removeClass("d-none")
+                $("button#diagnosed").addClass("d-none")
+            } else {
+                Swal.fire({
+                    icon: "error",
+                    title: "You forgot to select",
+                    text: "Select Issue",
+                    // showDenyButton: true,
+                    confirmButtonText: 'OK',
+                    // denyButtonText: `Don 't save`
+                }).then((okay) => {
+                    console.log(okay)
+                    // location.href = "/"
+                });
+                return
+            }
+        })
+
+        function removeOptionIfSelected(selectId, optionValue) {
+            $(`#${selectId} option[value="${optionValue}"]`).remove();
+        }
     </script>
 @endsection

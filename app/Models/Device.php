@@ -9,21 +9,14 @@ class Device extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'serial_number',
-        'device_type',
-        'brand',
+        "brand",
+        "symptoms",
+        "hardware_issues",
+        "resolved_at",
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-    public function issue()
-    {
-        return $this->hasMany(Issue::class, foreignKey: "device_id", localKey: "device_id");
-    }
-    public function diagnosticResult()
-    {
-        return $this->hasMany(DiagnosticResult::class, foreignKey: "device_id", localKey: "device_id");
     }
 }

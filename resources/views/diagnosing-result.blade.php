@@ -17,72 +17,43 @@
 
                                     <form method="POST" action="">
                                         @csrf
-                                        {{-- <label for="q1" class="txt">What is the computer do you use ?</label> --}}
-                                        {{-- <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->device->device_type }}" disabled readonly>
-                                        </div> --}}
-
-
+                                        <input id="device-id" type="hidden" value="{{ $device->device_id }}" />
+                                        @if ($device->resolved_at)
+                                            <label for="q2" class="txt">This issue was solved on</label>
+                                            <div class="txt">
+                                                <input class="form-control" type="text"
+                                                    value="{{ Carbon\Carbon::createFromFormat('Y-m-d', $device->resolved_at)->format('F j, Y') }}"
+                                                    disabled readonly>
+                                            </div>
+                                        @endif
                                         <label for="q2" class="txt">What is the current brand you use?</label>
                                         <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->device->brand }}" disabled readonly>
+                                            <input class="form-control" type="text" value="{{ $device->brand }}" disabled
+                                                readonly>
                                         </div>
 
-
-
-                                        <label for="" class="txt">Serial Number</label>
+                                        <label for="q2" class="txt">Diagnosed on?</label>
                                         <div class="txt">
                                             <input class="form-control" type="text"
-                                                value="Inputed: {{ $dr->device->serial_number }}" disabled readonly>
+                                                value="{{ $device->created_at->format('F j, Y') }}" disabled readonly>
                                         </div>
-
-                                        <label for="issue1" class="txt">Hardware</label>
-                                        <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->issue->ans_one ?? 'None' }}" disabled readonly>
-                                        </div>
-
-
-
-
-                                        <label for="issue2" class="txt">Keyboard Issue</label>
-                                        <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->issue->ans_two ?? 'None' }}" disabled readonly>
-                                        </div>
-
-
-
-                                        <label for="issue3" class="txt">Mouse/Pointer Issue</label>
-                                        <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->issue->ans_three ?? 'None' }}" disabled readonly>
-                                        </div>
-
-
-                                        <label for="issue4" class="txt">Display Issue</label>
-                                        <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->issue->ans_four ?? 'None' }}" disabled readonly>
-                                        </div>
-                                        <p> </p>
-
-                                        {{-- <label for="issue5" class="txt">Issue 5:</label>
-                                        <div class="txt">
-                                            <input class="form-control" type="text"
-                                                value="Selected: {{ $dr->issue->ans_five ?? 'None' }}" disabled readonly>
-                                        </div> --}}
-                                        <p> </p>
-
-                                        <label for="issue5" class="txt ">Result Issue</label>
+                                        <label for="issue5" class="txt ">Issues</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" disabled readonly>
-@foreach (json_decode($dr->diagnosis_details) as $details)
-{{ $details }}
+@foreach (json_decode($device->symptoms) as $issue)
+@if ($issue == null)
+@break
+@endif
+-{{ ucwords($issue) }}
 @endforeach
                                         </textarea>
-                                        @if (!$dr->issue->status)
+
+                                        <label for="issue5" class="txt ">Hardware Problems</label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" disabled readonly>
+@foreach (json_decode($device->hardware_issues) as $hardware)
+-{{ ucwords($hardware) }}
+@endforeach
+                                        </textarea>
+                                        @if (!$device->resolved_at)
                                             <div id="change-if-resolved">
 
                                                 <button id="is-resolve" class="animated-button mt-5 ">
@@ -102,13 +73,7 @@
                                                     </svg>
                                                 </button>
                                             </div>
-                                        @else
-                                            <p>This issue was solved on <span>
-                                                    {{ Carbon\Carbon::createFromFormat('Y-m-d', $dr->issue->resolved_at)->format('F j, Y') }}
-                                                </span></p>
                                         @endif
-
-
 
                                     </form>
 
@@ -127,12 +92,11 @@
         $("#back-2").on("click", () => history.back())
         $("#is-resolve").on("click", async (e) => {
             e.preventDefault()
+            let id = $("#device-id").val()
             try {
-                const response = await axios.post("/resolved/{{ $dr->issue->issue_id }}", {
-                    resolved: 1
-                })
+                const response = await axios.get(`/resolved/${id}`)
                 console.log(response)
-                if (response.statusText === "OK") {
+                if (response.status === 200) {
                     $("#change-if-resolved").html("<p>This issue was solved</p>")
                 }
             } catch (error) {

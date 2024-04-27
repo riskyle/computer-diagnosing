@@ -12,9 +12,10 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Serial Number</th>
-                            <th scope="col">Device Type</th>
                             <th scope="col">Brand</th>
+                            <th scope="col">Issues</th>
+                            <th scope="col">Date of Diagnosed</th>
+                            <th scope="col">Date of Resolved</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,13 +42,16 @@
                         name: 'device_id',
                     },
                     {
-                        data: "serial_number",
-                    },
-                    {
-                        data: "device_type",
-                    },
-                    {
                         data: "brand",
+                    },
+                    {
+                        data: "issues",
+                    },
+                    {
+                        data: "dateOfDiagnosed",
+                    },
+                    {
+                        data: "dateOfResolved",
                     },
                     {
                         data: "action",
@@ -55,9 +59,8 @@
                 ],
                 rowCallback: function(row, data) {
                     $(row).on('click', function() {
-                        const serial_number = data.serial_number;
-
-                        location.href = `issues/${serial_number}/?d_id=${data.device_id}`
+                        const device_id = data.device_id;
+                        location.href = `diagnosing-result/${device_id}`
                     })
                 }
             })

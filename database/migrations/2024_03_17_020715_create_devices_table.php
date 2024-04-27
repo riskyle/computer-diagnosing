@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('devices', function (Blueprint $table) {
             $table->id(column: "device_id");
-            $table->string("serial_number")->unique();
             $table->foreignId("user_id")->constrained(table: "users", column: "id")->cascadeOnDelete();
-            $table->string("device_type");
             $table->string("brand");
+            $table->longText("symptoms");
+            $table->longText("hardware_issues");
+            $table->date("resolved_at")->nullable();
             $table->timestamps();
         });
     }

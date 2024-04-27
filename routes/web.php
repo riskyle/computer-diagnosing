@@ -23,16 +23,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get("/diagnosing-result/{id}", [DiagnoseController::class, "diagnosingResult"])->name('diagnostic');
+    Route::get("/diagnosing-result/{id}", [DiagnoseController::class, "diagnosticViewResult"])->name('diagnostic');
     Route::get("/devices", [DeviceController::class, "devices"])->name("device");
-    Route::get("/issues/{serial_number}", [IssueController::class, "viewIssues"])->name("issue");
+    // Route::get("/issues/{serial_number}", [IssueController::class, "viewIssues"])->name("issue");
 
     // Ajax returned JSON
     Route::post("/diagnosing", [DiagnoseController::class, "diagnosing"]);
     Route::get("/get-devices", [DeviceController::class, "getDevices"]);
-    Route::get("/get-issues", [IssueController::class, "getIssues"]);
-    Route::get("/issue", [IssueController::class, "issues"]);
-    Route::post("/resolved/{issueId}", [DiagnoseController::class, "resolveTheIssue"]);
+    // Route::get("/get-issues", [IssueController::class, "getIssues"]);
+    // Route::get("/issue", [IssueController::class, "issues"]);
+    Route::get("/resolved/{id}", [DiagnoseController::class, "resolved"]);
 });
 
 Route::middleware('auth')->group(function () {

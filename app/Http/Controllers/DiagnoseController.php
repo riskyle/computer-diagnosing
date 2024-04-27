@@ -13,15 +13,9 @@ use Carbon\Carbon;
 
 class DiagnoseController extends Controller
 {
-    public function diagnosing(Request $request, Device $device, Issue $issue, DiagnosticResult $diagnosticResult, User $user)
+    public function diagnosing(Request $request, Device $device, User $user)
     {
-        $symptoms = [
-            strtolower($request->issue1),
-            strtolower($request->issue2),
-            strtolower($request->issue3),
-            strtolower($request->issue4),
-            strtolower($request->issue5)
-        ];
+        $symptoms = $request->issues;
 
         $hardware_issues = [
             'CPU' => ['turn off', 'bluescreen', 'overheating', 'unusual noise', 'performance degradation'],
@@ -38,54 +32,31 @@ class DiagnoseController extends Controller
             'COOLING FAN' => ['overheating', 'loud noise or grinding sounds', 'intermittent operation', 'decreased airflow', 'system shutdowns or errors'],
         ];
 
-        $hint = [];
+        $hints = [];
         foreach ($hardware_issues as $component => $issues) {
             if (array_intersect($symptoms, $issues)) {
-                $hint[] = $component;
+                $hints[] = $component;
             }
         }
 
-        // $user = $user->where("id", auth()->user()->id)->first();
-        $user = $user->find(auth()->user()->id);
-
-        if (!request("s_num")) {
-            $user->device()->create([
-                "serial_number" => $request->q3,
-                "device_type" => $request->q1,
-                "brand" => $request->q2,
-            ]);
-        }
-
-        $device = $device->where("user_id", auth()->user()->id)->where("serial_number", $request->q3 ?? request("s_num"))->first();
-        $get = $device->issue()->create([
-            "ans_one" => ucwords($request->issue1),
-            "ans_two" => ucwords($request->issue2),
-            "ans_three" => ucwords($request->issue3),
-            "ans_four" => ucwords($request->issue4),
-            "ans_five" => ucwords($request->issue5),
-            "status" => 0,
+        $user = $user->where("id", auth()->user()->id)->first();
+        $device = $user->device()->create([
+            "brand" => $request->brandType,
+            "symptoms" =>  json_encode($request->issues),
+            "hardware_issues" =>  json_encode($hints),
+            "resolved_at" => null,
         ]);
 
-        $issue = $issue->where("device_id", $device->device_id)->first();
-        $user->diagnosticResult()->create([
-            "issue_id" => $get->id,
-            "device_id" => $device->device_id,
-            "diagnosis_details" => json_encode($hint),
-        ]);
-
-        return Response::json(["hints" => $hint, "issue_id" => $get->id]);
+        return Response::json(["hints" =>  $hints, "device" => $device]);
     }
-    public function diagnosingResult($id, DiagnosticResult $diagnosticResult, Carbon $carbon)
+    public function diagnosticViewResult($id, Device $devices)
     {
-        $dr = $diagnosticResult->where("issue_id", $id)->where("user_id", auth()->user()->id)->first();
-        return view("diagnosing-result", compact("dr"));
+        $device = $devices->where("device_id", $id)->first();
+        return view("diagnosing-result", compact("device"));
     }
-    public function resolveTheIssue($issueId, Issue $issue, Request $request, Carbon $carbon)
+    public function resolved($id, Device $device,  Carbon $carbon)
     {
-        if ($request->resolved !== 1) {
-            return Response::json(["Error!"]);
-        }
-        $issue->where("issue_id", $issueId)->update(["status" => $request->resolved, "resolved_at" => $carbon->now()]);
-        return Response::json(["resolved" => "The issue was resolved"]);
+        $device->where("device_id", $id)->update(['resolved_at' => $carbon->now()]);
+        return Response::json(['satus' => "updated"]);
     }
 }
