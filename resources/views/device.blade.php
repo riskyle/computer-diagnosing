@@ -28,42 +28,83 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('#devices').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "/get-devices",
-                columns: [{
-                        data: null,
-                        render: function(data, type, full, meta) {
-                            // Use meta.row to get the row index, and add 1 to start from 1
-                            return meta.row + 1;
+        $(document).ready(async () => {
+            try {
+                const response = await axios.get("/get-devices")
+                let devices = response.data.devices
+                $.fn.devicesTable = $('#devices').DataTable({
+                    data: devices,
+                    responsive: true,
+                    columns: [{
+                            data: null,
+                            render: function(data, type, full, meta) {
+                                // Use meta.row to get the row index, and add 1 to start from 1
+                                return meta.row + 1;
+                            },
+                            name: 'device_id',
                         },
-                        name: 'device_id',
-                    },
-                    {
-                        data: "brand",
-                    },
-                    {
-                        data: "issues",
-                    },
-                    {
-                        data: "dateOfDiagnosed",
-                    },
-                    {
-                        data: "dateOfResolved",
-                    },
-                    {
-                        data: "action",
-                    },
-                ],
-                rowCallback: function(row, data) {
-                    $(row).on('click', function() {
-                        const device_id = data.device_id;
-                        location.href = `diagnosing-result/${device_id}`
-                    })
-                }
-            })
+                        {
+                            data: "brand",
+                        },
+                        {
+                            data: "symptoms",
+                            render: function(data, type, row, meta) {
+                                let issues = JSON.parse(data)
+                                let list = ""
+                                issues.map(issue => {
+                                    if (issue == null) {
+                                        return;
+                                    }
+                                    list += "-" + issue + "<br/>"
+                                })
+                                return list
+                            }
+                        },
+                        {
+                            data: "created_at",
+                            render: function(data, type, row, meta) {
+                                return formatDate(data)
+                            }
+                        },
+                        {
+                            data: "resolved_at",
+                            render: function(data, type, row, meta) {
+                                return data == null ? "Unresolved" : formatDate(data)
+                            }
+                        },
+                        {
+                            data: "action",
+                            render: function() {
+                                return `<button class="btn btn-primary">Go to details</button>`
+                            }
+                        },
+                    ],
+                    rowCallback: function(row, data) {
+                        $(row).on('click', function() {
+                            const device_id = data.device_id;
+                            location.href = `diagnosing-result/${device_id}`
+                        })
+                    }
+                })
+            } catch (error) {
+                console.error(error)
+            }
         })
+
+        function formatDate(dateString, format) {
+            const date = new Date(dateString);
+
+            const options = {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: true
+            };
+
+            return new Intl.DateTimeFormat('en-US', options).format(date);
+        }
     </script>
 @endsection

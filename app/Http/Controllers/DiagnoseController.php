@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Device;
-use App\Models\DiagnosticResult;
-use App\Models\Issue;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
 
@@ -49,14 +46,14 @@ class DiagnoseController extends Controller
 
         return Response::json(["hints" =>  $hints, "device" => $device]);
     }
-    public function diagnosticViewResult($id, Device $devices)
+    public function diagnosticViewResult(int $id, Device $devices)
     {
         $device = $devices->where("device_id", $id)->first();
         return view("diagnosing-result", compact("device"));
     }
-    public function resolved($id, Device $device,  Carbon $carbon)
+    public function resolved(int $id, Device $device,  Carbon $carbon)
     {
         $device->where("device_id", $id)->update(['resolved_at' => $carbon->now()]);
-        return Response::json(['satus' => "updated"]);
+        return Response::json(['status' => "updated"]);
     }
 }

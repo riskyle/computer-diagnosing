@@ -89,7 +89,6 @@
         </div>
     </section>
     <script>
-        $("#back-2").on("click", () => history.back())
         $("#is-resolve").on("click", async (e) => {
             e.preventDefault()
             let id = $("#device-id").val()
