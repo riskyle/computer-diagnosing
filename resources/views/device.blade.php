@@ -19,7 +19,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-
+                    
                 </table>
             </main>
         </div>
@@ -32,7 +32,7 @@
             try {
                 const response = await axios.get("/get-devices")
                 let devices = response.data.devices
-                $.fn.devicesTable = $('#devices').DataTable({
+                $('#devices').DataTable({
                     data: devices,
                     responsive: true,
                     columns: [{
@@ -55,7 +55,7 @@
                                     if (issue == null) {
                                         return;
                                     }
-                                    list += "-" + issue + "<br/>"
+                                    list += "-" + capitalizeWords(issue) + "<br/>"
                                 })
                                 return list
                             }
@@ -96,15 +96,21 @@
 
             const options = {
                 year: 'numeric',
-                month: 'short',
+                month: 'long',
                 day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                hour12: true
+                // hour: 'numeric',
+                // minute: 'numeric',
+                // second: 'numeric',
+                // hour12: true
             };
 
             return new Intl.DateTimeFormat('en-US', options).format(date);
+        }
+
+        function capitalizeWords(str) {
+            return str.replace(/\b\w/g, function(char) {
+                return char.toUpperCase();
+            });
         }
     </script>
 @endsection
