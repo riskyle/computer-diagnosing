@@ -10,7 +10,7 @@
             <div class="row d-flex justify-content-center align-items-center h-500">
                 <div class="col-lg-8 col-xl-6 mt-5 mb-10">
                     <div class="card text-black" style="border-radius: 9px; backdrop-filter: blur(6px)">
-
+                        
                         <div class="card-body p-md-6">
                             <div class="row justify-content-center">
                                 <div class="col-md-10  ">
@@ -97,7 +97,7 @@
                 const response = await axios.get(`/resolved/${id}`)
                 console.log(response)
                 if (response.status === 200) {
-                    $("#change-if-resolved").html("<p>This issue was solved</p>")
+                    $("#change-if-resolved").html("<p class='result'>This issue was solved</p>")
                 }
             } catch (error) {
                 console.error(error)

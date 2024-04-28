@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Device;
-use App\Models\DiagnosticResult;
-use App\Models\Issue;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Carbon\Carbon;
 

@@ -237,6 +237,13 @@
     color: black;
 }
 
+/* result OF DIAGNOSED CSS */
+.result {
+    color: white;
+    font-size: 20px;
+    margin-top: 2rem;
+}
+
 /* dashboard css */
 /* .box {
         position: relative;
