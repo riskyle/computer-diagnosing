@@ -599,7 +599,7 @@
                 issueForm[3].value = ""
                 issueForm[4].value = ""
                 $("#next-button1, .select1, .select-brand").removeClass("d-none")
-                $("#next-button2, #submit, .select2, .select3").addClass("d-none")
+                $("#next-button2, #submit,1 .select2, .select3").addClass("d-none")
             } catch (error) {
                 console.error(error)
             }
@@ -611,6 +611,7 @@
             let brandType = issueForm[1].value
             let issue1 = issueForm[2].value
             if (issue1) {
+                
                 $("#next-button1, .select1, .select-brand").addClass("d-none")
                 $("#next-button2, .select2").removeClass("d-none")
                 removeOptionIfSelected("issue-select2", issueForm[2].value)
