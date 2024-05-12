@@ -10,11 +10,10 @@
             <div class="row d-flex justify-content-center align-items-center h-500">
                 <div class="col-lg-8 col-xl-6 mt-5 mb-10">
                     <div class="card text-black" style="border-radius: 9px; backdrop-filter: blur(6px)">
-                        
+
                         <div class="card-body p-md-6">
                             <div class="row justify-content-center">
                                 <div class="col-md-10  ">
-
                                     <form method="POST" action="">
                                         @csrf
                                         <input id="device-id" type="hidden" value="{{ $device->device_id }}" />
@@ -39,23 +38,24 @@
                                         </div>
                                         <label for="issue5" class="txt ">Issues</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" disabled readonly>
-@foreach (json_decode($device->symptoms) as $issue)
-@if ($issue == null)
-@break
-@endif
--{{ ucwords($issue) }}
-@endforeach
+@foreach (json_decode($device->symptoms) as $symptom)
+-{{ $symptom }}
+@endforeach                                                     
                                         </textarea>
 
                                         <label for="issue5" class="txt ">Hardware Problems</label>
                                         <textarea class="form-control" id="exampleFormControlTextarea1" disabled readonly>
-@foreach (json_decode($device->hardware_issues) as $hardware)
--{{ ucwords($hardware) }}
-@endforeach
+@foreach ($hardwareIssues as $hardwareIssue)
+-{{ $hardwareIssue[0] }}
+@endforeach                                        
                                         </textarea>
+
+                                        <button class="form-control mt-4" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#recommendation-modal">
+                                            View Recommendation
+                                        </button>
                                         @if (!$device->resolved_at)
                                             <div id="change-if-resolved">
-
                                                 <button id="is-resolve" class="animated-button mt-5 ">
                                                     <svg viewBox="0 0 24 24" class="arr-2"
                                                         xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,6 @@
                                                 </button>
                                             </div>
                                         @endif
-
                                     </form>
 
                                 </div>
@@ -88,6 +87,36 @@
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="recommendation-modal" tabindex="-1" aria-labelledby="recommendation-modal-label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="recommendation-modal-label">Recommendation</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    @foreach ($hardwareIssues as $hardwareIssue)
+                        <a class='text-black' href="{{ $hardwareIssue[1] }}" target='_blank'>
+                            <h3>For <strong>{{ $hardwareIssue[0] }}</strong>
+                                Recommendation
+                            </h3>
+                        </a>
+                        @php $i = 0 @endphp
+                        @foreach ($hardwareIssue[2] as $recommendation)
+                            <strong> Step {{ $i += 1 }}. </strong> {{ $recommendation }} <br />
+                        @endforeach
+                        <br />
+                        <br />
+                    @endforeach
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         $("#back-2").on("click", () => history.back())
         $("#is-resolve").on("click", async (e) => {

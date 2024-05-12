@@ -22,7 +22,7 @@
                                                 <label for="q2" class="txt">Brand of the device?</label>
                                                 <div class="clr-line">
                                                     {{-- sellect/input --}}
-                                                    <select id="q2" name="q2" class="box">
+                                                    <select id="brand" name="brand" class="box">
                                                         <option value="" selected disabled>Select</option>
                                                         <option value="Acer">Acer</option>
                                                         <option value="Asus">Asus</option>
@@ -126,7 +126,6 @@
                                                         <option value="Logitech G">Logitech G</option>
                                                         <option value="N-vision">N-vision</option>
                                                     </select>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -142,302 +141,150 @@
                                                         <option value="" selected disabled>
                                                             Select
                                                         </option>
-                                                        <option value="turn off">
-                                                            Turn Off
-                                                        </option>
                                                         <option value="bluescreen">
                                                             Blue Screen
                                                         </option>
                                                         <option value="overheating">
                                                             Overheating
                                                         </option>
-                                                        <option value="unusual noise">
-                                                            Unusual Noise
-                                                        </option>
                                                         <option value="performance degradation">
                                                             Performance Degradation
+                                                        </option>
+                                                        <option value="system malfunctions">
+                                                            System Malfunctions
+                                                        </option>
+                                                        <option value="error messages">
+                                                            Error messages
+                                                        </option>
+                                                        <option value="inability to execute certain instructions">
+                                                            Inability to execute certain instructions
+                                                        </option>
+                                                        <option value="firmware failure">
+                                                            Firmware Failure
+                                                        </option>
+                                                        <option value="drive misuse">
+                                                            Drive Misuse
+                                                        </option>
+                                                        <option value="connected technology issues">
+                                                            Connected Technology Issues
+                                                        </option>
+                                                        <option value="bad data blocks">
+                                                            Bad Data Blocks
+                                                        </option>
+                                                        <option value="file system error">
+                                                            File System Error
+                                                        </option>
+                                                        <option value="no power">
+                                                            No Power
+                                                        </option>
+                                                        <option value="no display">
+                                                            No Display
+                                                        </option>
+                                                        <option value="no sound">
+                                                            No Sound
+                                                        </option>
+                                                        <option value="fan spins too fast">
+                                                            Fan Spins Too Fast
+                                                        </option>
+                                                        <option value="power-on fails">
+                                                            Power-on Fails
+                                                        </option>
+                                                        <option value="electrostatic discharge">
+                                                            Electrostatic Discharge
+                                                        </option>
+                                                        <option value="psu smoke">
+                                                            PSU Smoke
+                                                        </option>
+                                                        <option value="circuit overload">
+                                                            Circuit Overload
                                                         </option>
                                                         <option value="system crashes">
                                                             System Crashes
                                                         </option>
-                                                        <option value="data corruption">
-                                                            Data Corruption
-                                                        </option>
                                                         <option value="slow performance">
                                                             Slow Performance
                                                         </option>
-                                                        <option value="pointer drift or inaccuracy">
-                                                            Pointer Drift or Inaccuracy
+                                                        <option value="noise">
+                                                            Noise
                                                         </option>
-                                                        <option value="physical damage">
-                                                            Physical Damage
+                                                        <option value="random crashes">
+                                                            Random Crashes
                                                         </option>
-                                                        <option value="failure to power on">
-                                                            Failure to Power On
+                                                        <option value="black screen">
+                                                            Black Screen
                                                         </option>
-                                                        <option value="intermittent boot failures">
-                                                            Intermittent Boot Failures
+                                                        <option value="color fade">
+                                                            Color Fade
                                                         </option>
-                                                        <option value="overheating or excessive noise">Overheating or
-                                                            Excessive Noise
+                                                        <option value="fuzzy">
+                                                            Fuzzy
                                                         </option>
-                                                        <option value="burning smell or smoke">
-                                                            Burning Smell or Smoke
+                                                        <option value="blurry">
+                                                            Blurry
                                                         </option>
-                                                        <option value="intermittent power supply">
-                                                            Intermittent Power Supply
+                                                        <option value="distorted">
+                                                            Distorted
                                                         </option>
-                                                        <option value="peripheral malfunctions">
-                                                            Peripheral Malfunctions
+                                                        <option value="stretched image">
+                                                            Stretched Image
                                                         </option>
-                                                        <option value="random crashes or freezes">
-                                                            Random Crashes or Freezes
+                                                        <option value="geometric distortion">
+                                                            Geometric Distortion
                                                         </option>
-                                                        <option value="application errors and instability">
-                                                            Application Errors and Instability
+                                                        <option value="light bleeding">
+                                                            Light Bleeding
                                                         </option>
-                                                        <option value="system boot failure">
-                                                            System Boot Failure
+                                                        <option value="flickering screen">
+                                                            Flickering Screen
                                                         </option>
-                                                        <option value="instruction execution errors">
-                                                            Instruction Execution Errors
+                                                        <option value="horizontal or vertical lines on the screen">
+                                                            Horizontal or Vertical Lines on the Screen
                                                         </option>
-                                                        <option value="system instability">
-                                                            System Instability
+                                                        <option value="light or dark patches">
+                                                            Light or Dark Patches
                                                         </option>
-                                                        <option value="artifacts and visual glitches">
-                                                            Artifacts and Visual Glitches
+                                                        <option value="freeze">
+                                                            Freeze
                                                         </option>
-                                                        <option value="reduced graphics performance">
-                                                            Reduced Graphics Performance
+                                                        <option value="corrupted files">
+                                                            Corrupted Files
                                                         </option>
-                                                        <option value="dead pixels">
-                                                            Dead Pixels
+                                                        <option value="visual artifacts">
+                                                            Visual Artifacts
                                                         </option>
-                                                        <option value="screen flickering">
-                                                            Screen Flickering
+                                                        <option value="outdated drivers">
+                                                            Outdated Drivers
                                                         </option>
-                                                        <option value="blurry or distorted images">
-                                                            Blurry or Distorted Images
+                                                        <option value="dusty">
+                                                            Dusty
                                                         </option>
-                                                        <option value="no display or blank screen">
-                                                            No Display or Blank Screen
+                                                        <option value="rust">
+                                                            Rust
                                                         </option>
-                                                        <option value="cracked or damaged screen">
-                                                            Cracked or Damaged Screen
+                                                        <option value="oxidized sata connectors">
+                                                            Oxidized SATA Connectors
                                                         </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {{-- select 2 --}}
-                                        <div class="select2 col-12 d-flex flex-row align-items-center mb-3 d-none">
-                                            <div class="form-outline flex-fill mb-0">
-                                                {{-- label --}}
-                                                <label for="issue1" class="txt">Hardware Issues:</label>
-                                                <div class=" clr-line">
-                                                    {{-- sellect/input --}}
-                                                    <select id="issue-select2" name="issue1" class="box">
-                                                        <option value="" selected disabled>
-                                                            Select
+                                                        <option value="bios settings lost">
+                                                            BIOS Settings Lost
                                                         </option>
-                                                        <option value="turn off">
-                                                            Turn Off
+                                                        <option value="time-of-day clock stopped error message">
+                                                            Time-of-Day Clock Stopped Error Message
                                                         </option>
-                                                        <option value="bluescreen">
-                                                            Blue Screen
+                                                        <option value="hard drive/fan fail spin">
+                                                            Hard Drive/Fan Fail Spin
                                                         </option>
-                                                        <option value="overheating">
-                                                            Overheating
-                                                        </option>
-                                                        <option value="unusual noise">
-                                                            Unusual Noise
-                                                        </option>
-                                                        <option value="performance degradation">
-                                                            Performance Degradation
-                                                        </option>
-                                                        <option value="system crashes">
-                                                            System Crashes
-                                                        </option>
-                                                        <option value="data corruption">
-                                                            Data Corruption
-                                                        </option>
-                                                        <option value="slow performance">
-                                                            Slow Performance
-                                                        </option>
-                                                        <option value="pointer drift or inaccuracy">
-                                                            Pointer Drift or Inaccuracy
-                                                        </option>
-                                                        <option value="physical damage">
-                                                            Physical Damage
-                                                        </option>
-                                                        <option value="failure to power on">
-                                                            Failure to Power On
-                                                        </option>
-                                                        <option value="intermittent boot failures">
-                                                            Intermittent Boot Failures
-                                                        </option>
-                                                        <option value="overheating or excessive noise">Overheating or
-                                                            Excessive Noise
-                                                        </option>
-                                                        <option value="burning smell or smoke">
-                                                            Burning Smell or Smoke
-                                                        </option>
-                                                        <option value="intermittent power supply">
-                                                            Intermittent Power Supply
-                                                        </option>
-                                                        <option value="peripheral malfunctions">
-                                                            Peripheral Malfunctions
-                                                        </option>
-                                                        <option value="random crashes or freezes">
-                                                            Random Crashes or Freezes
-                                                        </option>
-                                                        <option value="application errors and instability">
-                                                            Application Errors and Instability
-                                                        </option>
-                                                        <option value="system boot failure">
-                                                            System Boot Failure
-                                                        </option>
-                                                        <option value="instruction execution errors">
-                                                            Instruction Execution Errors
-                                                        </option>
-                                                        <option value="system instability">
-                                                            System Instability
-                                                        </option>
-                                                        <option value="artifacts and visual glitches">
-                                                            Artifacts and Visual Glitches
-                                                        </option>
-                                                        <option value="reduced graphics performance">
-                                                            Reduced Graphics Performance
-                                                        </option>
-                                                        <option value="dead pixels">
-                                                            Dead Pixels
-                                                        </option>
-                                                        <option value="screen flickering">
-                                                            Screen Flickering
-                                                        </option>
-                                                        <option value="blurry or distorted images">
-                                                            Blurry or Distorted Images
-                                                        </option>
-                                                        <option value="no display or blank screen">
-                                                            No Display or Blank Screen
-                                                        </option>
-                                                        <option value="cracked or damaged screen">
-                                                            Cracked or Damaged Screen
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {{-- select 3 --}}
-                                        <div class="select3 col-12 d-flex flex-row align-items-center mb-3 d-none">
-                                            <div class="form-outline flex-fill mb-0">
-                                                {{-- label --}}
-                                                <label for="issue1" class="txt">Hardware Issues:</label>
-                                                <div class=" clr-line">
-                                                    {{-- sellect/input --}}
-                                                    <select id="issue-select3" name="issue1" class="box">
-                                                        <option value="" selected disabled>
-                                                            Select
-                                                        </option>
-                                                        <option value="turn off">
-                                                            Turn Off
-                                                        </option>
-                                                        <option value="bluescreen">
-                                                            Blue Screen
-                                                        </option>
-                                                        <option value="overheating">
-                                                            Overheating
-                                                        </option>
-                                                        <option value="unusual noise">
-                                                            Unusual Noise
-                                                        </option>
-                                                        <option value="performance degradation">
-                                                            Performance Degradation
-                                                        </option>
-                                                        <option value="system crashes">
-                                                            System Crashes
-                                                        </option>
-                                                        <option value="data corruption">
-                                                            Data Corruption
-                                                        </option>
-                                                        <option value="slow performance">
-                                                            Slow Performance
-                                                        </option>
-                                                        <option value="pointer drift or inaccuracy">
-                                                            Pointer Drift or Inaccuracy
-                                                        </option>
-                                                        <option value="physical damage">
-                                                            Physical Damage
-                                                        </option>
-                                                        <option value="failure to power on">
-                                                            Failure to Power On
-                                                        </option>
-                                                        <option value="intermittent boot failures">
-                                                            Intermittent Boot Failures
-                                                        </option>
-                                                        <option value="overheating or excessive noise">Overheating or
-                                                            Excessive Noise
-                                                        </option>
-                                                        <option value="burning smell or smoke">
-                                                            Burning Smell or Smoke
-                                                        </option>
-                                                        <option value="intermittent power supply">
-                                                            Intermittent Power Supply
-                                                        </option>
-                                                        <option value="peripheral malfunctions">
-                                                            Peripheral Malfunctions
-                                                        </option>
-                                                        <option value="random crashes or freezes">
-                                                            Random Crashes or Freezes
-                                                        </option>
-                                                        <option value="application errors and instability">
-                                                            Application Errors and Instability
-                                                        </option>
-                                                        <option value="system boot failure">
-                                                            System Boot Failure
-                                                        </option>
-                                                        <option value="instruction execution errors">
-                                                            Instruction Execution Errors
-                                                        </option>
-                                                        <option value="system instability">
-                                                            System Instability
-                                                        </option>
-                                                        <option value="artifacts and visual glitches">
-                                                            Artifacts and Visual Glitches
-                                                        </option>
-                                                        <option value="reduced graphics performance">
-                                                            Reduced Graphics Performance
-                                                        </option>
-                                                        <option value="dead pixels">
-                                                            Dead Pixels
-                                                        </option>
-                                                        <option value="screen flickering">
-                                                            Screen Flickering
-                                                        </option>
-                                                        <option value="blurry or distorted images">
-                                                            Blurry or Distorted Images
-                                                        </option>
-                                                        <option value="no display or blank screen">
-                                                            No Display or Blank Screen
-                                                        </option>
-                                                        <option value="cracked or damaged screen">
-                                                            Cracked or Damaged Screen
+                                                        <option value="insufficient power supply to gpu">
+                                                            Insufficient Power Supply to GPU
                                                         </option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                 </div>
-
-
                             </div>
                         </div>
                         {{-- end --}}
-
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center" id="diagnosed">
                             <div class="row bttn g-3">
                                 <div class="col-auto">
                                     <button class="animated-button" id="diagnosed">
@@ -455,58 +302,6 @@
                                         </svg>
                                     </button>
                                 </div>
-
-                                <div class="col-auto">
-
-                                    <button class="animated-button" id="next-button1">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Next</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-
-                                </div>
-                                <div class="col-auto">
-                                    <button class="animated-button d-none" id="next-button2">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Next</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                <div class="col-auto col">
-                                    <button class="animated-button d-none" id="submit">
-                                        <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M9.9,16.6c-0.3,0-0.7-0.1-0.9-0.4L4.4,11c-0.5-0.5-0.5-1.3,0-1.8s1.3-0.5,1.8,0l3.7,3.7l7.8-7.8 c0.5-0.5,1.3-0.5,1.8,0s0.5,1.3,0,1.8L10.8,16.2C10.6,16.5,10.2,16.6,9.9,16.6z">
-                                            </path>
-                                        </svg>
-                                        <span class="text">Submit</span>
-                                        <span class="circle"></span>
-                                        <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M9.9,16.6c-0.3,0-0.7-0.1-0.9-0.4L4.4,11c-0.5-0.5-0.5-1.3,0-1.8s1.3-0.5,1.8,0l3.7,3.7l7.8-7.8sc0.5-0.5,1.3-0.5,1.8,0s0.5,1.3,0,1.8L10.8,16.2C10.6,16.5,10.2,16.6,9.9,16.6z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </div>
                             </div>
 
                             </form>
@@ -517,16 +312,37 @@
         </div>
         </div>
     </section>
+    {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#recommendation-modal">
+        Launch demo modal
+    </button> --}}
+
+    <div class="modal fade" id="recommendation-modal" tabindex="-1" aria-labelledby="recommendation-modal-label"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="recommendation-modal-label">RECOMMENDATION</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><a
+                            class='text-decoration-none text-white' href="{{ route('device') }}">View my
+                            devices</a></button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- <script type="module" src="{{ asset('js/dashboard.js') }}"></script> --}}
     <script>
         let issueForm;
-        $("#diagnosed, #submit").on("click", async (e) => {
+        $("#diagnosed").on("click", async (e) => {
             e.preventDefault()
-            issueForm = $("form#issue-form")[0]
-            let brandType = issueForm[1].value
-            let issue1 = issueForm[2].value
-            let issue2 = issueForm[3].value
-            let issue3 = issueForm[4].value
+            let brandType = $('#brand').val()
+            let issue1 = $('#issue1').val()
 
             if (!issue1) {
                 Swal.fire({
@@ -561,99 +377,51 @@
                         icon: "success",
                         title: `Issues`,
                         html: `${hints}`,
-                        // showDenyButton: true,
-                        confirmButtonText: 'View Details',
-                        // denyButtonText: `Return to dashboard`
-                    }).then((okay) => {
-                        if (okay.isConfirmed) {
-                            location.href = `/diagnosing-result/${deviceId}`
+                        confirmButtonText: 'View Recommendation',
+                        buttonsStyling: false,
+                        customClass: {
+                            confirmButton: 'btn btn-primary',
+                            cancelButton: 'btn btn-secondary ms-2'
+                        },
+                        preConfirm: () => {
+                            $('#recommendation-modal').modal('show');
                         }
-                    });
+                    })
                 }
             });
 
             const jsonData = {
                 brandType: brandType,
-                issues: [
-                    issue1.toLowerCase(),
-                    issue2.toLowerCase(),
-                    issue3.toLowerCase(),
-                ],
+                issues: [issue1.toLowerCase()],
             }
             try {
                 const res = await axios.post("/diagnosing", jsonData)
-                console.log(res)
                 hints = res.data.hints
-                let list = ""
+                let list = ''
+                let showRecommendation = '';
                 let increment = 0
-                hints.map(data => {
-                    increment += 1
-                    list += `
-                        <p>${increment}. ${data}</p>
-                    `
+                hints.map((data) => {
+                    let components = data[0]
+                    let link = data[1]
+                    let recommends = data[2]
+                    let steps = 0
+                    list +=
+                        `<a class='text-decoration-none text-black' title='${link}' href='${link}' target='_blank'>${increment+=1}. ${components}</a> <br/>`
+                    showRecommendation +=
+                        `<h3 class='text-decoration-underline '><strong>For ${components} Recommendation</strong></h3>`
+                    recommends.map(recommend => {
+                        showRecommendation +=
+                            `<p><strong>Step ${steps+=1}</strong>. ${recommend}</p>`
+                    })
+                    showRecommendation += '<br/><br/>'
                 })
-                deviceId = res.data.device.id
+                console.log(showRecommendation)
                 hints = list
-                issueForm[1].value = ""
-                issueForm[2].value = ""
-                issueForm[3].value = ""
-                issueForm[4].value = ""
-                $("#next-button1, .select1, .select-brand").removeClass("d-none")
-                $("#next-button2, #submit,1 .select2, .select3").addClass("d-none")
+                $('.modal-body').html(showRecommendation);
+                $('#issue1').val('')
             } catch (error) {
                 console.error(error)
             }
         })
-
-        $("button#next-button1").on("click", (e) => {
-            e.preventDefault()
-            issueForm = $("form#issue-form")[0]
-            let brandType = issueForm[1].value
-            let issue1 = issueForm[2].value
-            if (issue1) {
-                
-                $("#next-button1, .select1, .select-brand").addClass("d-none")
-                $("#next-button2, .select2").removeClass("d-none")
-                removeOptionIfSelected("issue-select2", issueForm[2].value)
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "You forgot to select",
-                    text: "Select Issue",
-                    // showDenyButton: true,
-                    confirmButtonText: 'OK',
-                    // denyButtonText: `Don 't save`
-                }).then((okay) => {
-                    console.log(okay)
-                    // location.href = "/"
-                });
-                return
-            }
-        })
-
-        $("button#next-button2").on("click", (e) => {
-            e.preventDefault()
-            let issue2 = issueForm[3].value
-            if (issue2) {
-                removeOptionIfSelected("issue-select3", issueForm[2].value)
-                removeOptionIfSelected("issue-select3", issueForm[3].value)
-                $("#next-button2, #diagnosed, .select2").addClass("d-none")
-                $("#submit, .select3").removeClass("d-none")
-            } else {
-                Swal.fire({
-                    icon: "error",
-                    title: "You forgot to select",
-                    text: "Select Issue",
-                    // showDenyButton: true,
-                    confirmButtonText: 'OK',
-                    // denyButtonText: `Don 't save`
-                })
-                return
-            }
-        })
-
-        function removeOptionIfSelected(selectId, optionValue) {
-            $(`#${selectId} option[value="${optionValue}"]`).remove();
-        }
     </script>
 @endsection

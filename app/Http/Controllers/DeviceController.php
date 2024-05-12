@@ -15,8 +15,8 @@ class DeviceController extends Controller
     }
     public function getDevices(Device $device)
     {
-        $devices = $device->where("user_id", auth()->user()->id)->get();
-        return Response::json([
+        $devices = $device->latest()->where("user_id", auth()->user()->id)->get();
+        return Response::json([ 
             "devices" => $devices,
         ]);
     }
