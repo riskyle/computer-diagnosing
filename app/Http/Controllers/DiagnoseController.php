@@ -15,7 +15,8 @@ class DiagnoseController extends Controller
     {
         $symptoms = $request->issues;
 
-        $hardware_issues = $this->definedData();
+        // $hardware_issues = $this->components();
+        $hardware_issues = config('components.hardwares');
 
         $hints = [];
         foreach ($hardware_issues as $component => $data) {
@@ -26,7 +27,7 @@ class DiagnoseController extends Controller
 
         $user = $user->where("id", auth()->user()->id)->first();
 
-        $device = $user->device()->create([
+        $user->device()->create([
             "brand" => $request->brandType,
             "symptoms" =>  json_encode($request->issues),
             "hardware_issues" =>  json_encode($hints),
@@ -47,7 +48,7 @@ class DiagnoseController extends Controller
         return Response::json(['satus' => "updated"]);
     }
 
-    protected function definedData()
+    protected function components()
     {
         return [
             'CPU' => [
@@ -106,7 +107,7 @@ class DiagnoseController extends Controller
             ],
             'RAM' => [
                 'link' => 'https://www.linkedin.com/advice/0/what-common-signs-causes-ram-failure-skills-hardware-diagnostics#:~:text=There%20are%20several%20factors%20that,%2C%20moisture%2C%20or%20static%20electricity.',
-                'issues' => ['blue screens', 'freezes', 'reboots', 'corrupted files', 'slow performance'],
+                'issues' => ['bluescreen', 'freezes', 'reboots', 'corrupted files', 'slow performance'],
                 'steps' => [
                     'Load the default setting for the BIOS, or update to the latest BIOS. You may wish to note the current BIOS settings before resetting the BIOS.',
                     'Use memory module that is compatible with your processor.',
