@@ -147,32 +147,11 @@
                                                         <option value="overheating">
                                                             Overheating
                                                         </option>
-                                                        <option value="performance degradation">
-                                                            Performance Degradation
-                                                        </option>
-                                                        <option value="system malfunctions">
-                                                            System Malfunctions
-                                                        </option>
                                                         <option value="error messages">
                                                             Error messages
                                                         </option>
-                                                        <option value="inability to execute certain instructions">
-                                                            Inability to execute certain instructions
-                                                        </option>
-                                                        <option value="firmware failure">
-                                                            Firmware Failure
-                                                        </option>
                                                         <option value="drive misuse">
                                                             Drive Misuse
-                                                        </option>
-                                                        <option value="connected technology issues">
-                                                            Connected Technology Issues
-                                                        </option>
-                                                        <option value="bad data blocks">
-                                                            Bad Data Blocks
-                                                        </option>
-                                                        <option value="file system error">
-                                                            File System Error
                                                         </option>
                                                         <option value="no power">
                                                             No Power
@@ -186,17 +165,8 @@
                                                         <option value="fan spins too fast">
                                                             Fan Spins Too Fast
                                                         </option>
-                                                        <option value="power-on fails">
-                                                            Power-on Fails
-                                                        </option>
-                                                        <option value="electrostatic discharge">
-                                                            Electrostatic Discharge
-                                                        </option>
                                                         <option value="psu smoke">
                                                             PSU Smoke
-                                                        </option>
-                                                        <option value="circuit overload">
-                                                            Circuit Overload
                                                         </option>
                                                         <option value="system crashes">
                                                             System Crashes
@@ -216,29 +186,11 @@
                                                         <option value="color fade">
                                                             Color Fade
                                                         </option>
-                                                        <option value="fuzzy">
-                                                            Fuzzy
-                                                        </option>
                                                         <option value="blurry">
                                                             Blurry
                                                         </option>
-                                                        <option value="distorted">
-                                                            Distorted
-                                                        </option>
-                                                        <option value="stretched image">
-                                                            Stretched Image
-                                                        </option>
-                                                        <option value="geometric distortion">
-                                                            Geometric Distortion
-                                                        </option>
-                                                        <option value="light bleeding">
-                                                            Light Bleeding
-                                                        </option>
                                                         <option value="flickering screen">
                                                             Flickering Screen
-                                                        </option>
-                                                        <option value="horizontal or vertical lines on the screen">
-                                                            Horizontal or Vertical Lines on the Screen
                                                         </option>
                                                         <option value="light or dark patches">
                                                             Light or Dark Patches
@@ -249,20 +201,8 @@
                                                         <option value="corrupted files">
                                                             Corrupted Files
                                                         </option>
-                                                        <option value="visual artifacts">
-                                                            Visual Artifacts
-                                                        </option>
                                                         <option value="outdated drivers">
                                                             Outdated Drivers
-                                                        </option>
-                                                        <option value="dusty">
-                                                            Dusty
-                                                        </option>
-                                                        <option value="rust">
-                                                            Rust
-                                                        </option>
-                                                        <option value="oxidized sata connectors">
-                                                            Oxidized SATA Connectors
                                                         </option>
                                                         <option value="bios settings lost">
                                                             BIOS Settings Lost
@@ -406,7 +346,7 @@
                     let recommends = data[2]
                     let steps = 0
                     list +=
-                        `<a class='text-decoration-none text-black' title='${link}' href='${link}' target='_blank'>${increment+=1}. ${components}</a> <br/>`
+                        `${increment+=1}. ${components}---><a class='' title='${link}' href='${link}' target='_blank'>Click References</a> <br/>`
                     showRecommendation +=
                         `<h3 class='text-decoration-underline '><strong>For ${components} Recommendation</strong></h3>`
                     recommends.map(recommend => {
